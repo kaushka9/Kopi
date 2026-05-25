@@ -1,219 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Game Store</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;700&display=swap" rel="stylesheet">
 
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
+<style>
 
 *{
-
-
-  
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
 }
 
-body{<!-- HERO SECTION -->
-
-<div class="hero">
-
-    <h1>🎮 متجر حسابات الألعاب</h1>
-
-    <p>
-        اشتري حسابات PUBG - Free Fire - Fortnite وغيرها بأفضل الأسعار 🔥  
-        حسابات قوية + تسليم سريع + دعم مباشر
-    </p>
-
-    <a href="#games" class="hero-btn">ابدأ التصفح</a>
-
+body{
+    background:linear-gradient(135deg,#0f172a,#020617);
+    color:white;
+}
+<div class="banner">
+    🎮 عروض حصرية على حسابات PUBG و Free Fire لفترة محدودة!
 </div>
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
-    overflow:hidden;
-}
-
-.container{
-    width:380px;
-    padding:35px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    box-shadow:0 0 30px rgba(0,0,0,0.4);
-    color:white;
-    animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.logo{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.logo h1{
-    font-size:32px;
-    color:#38bdf8;
-}
-
-.logo p{
-    color:#cbd5e1;
-    font-size:14px;
-}
-
-.input-box{
-    margin-bottom:20px;
-}
-
-.input-box label{
-    display:block;
-    margin-bottom:8px;
-    color:#e2e8f0;
-}
-
-.input-box input{
-    width:100%;
-    padding:14px;
-    border:none;
-    outline:none;
-    border-radius:12px;
-    background:rgba(255,255,255,0.12);
-    color:white;
-    font-size:15px;
-    transition:0.3s;
-}
-
-.input-box input:focus{
-    background:rgba(255,255,255,0.18);
-    border:1px solid #38bdf8;
-}
-
-.input-box input::placeholder{
-    color:#cbd5e1;
-}
-
-.options{
+/* HEADER */
+header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
-    font-size:14px;
+    padding:15px;
+    background:rgba(255,255,255,0.03);
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.options a{
+.logo{
+    font-size:20px;
+    font-weight:700;
     color:#38bdf8;
-    text-decoration:none;
 }
 
-.login-btn{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    background:#38bdf8;
-    color:#0f172a;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
+/* HERO */
+.hero{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h1{
+    font-size:30px;
+}
+
+.hero p{
+    color:#94a3b8;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:15px;
+    overflow:hidden;
     transition:0.3s;
 }
 
-.login-btn:hover{
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card h2{
+    font-size:18px;
+}
+
+.card p{
+    font-size:13px;
+    color:#94a3b8;
+}
+
+.btn{
+    margin-top:10px;
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#38bdf8;
+    color:white;
+    cursor:pointer;
+}
+
+.btn:hover{
     background:#0ea5e9;
-    transform:scale(1.02);
 }
 
-.register{
+/* CART BUTTON */
+.cart-btn{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#38bdf8;
+    padding:12px 15px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:#0b1220;
+    padding:20px;
+    border-radius:15px;
+    width:320px;
+}
+
+.modal-box input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+    border:none;
+    outline:none;
+}
+
+.modal-box button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.send{
+    background:#38bdf8;
+}
+
+.close{
+    background:#64748b;
+}
+
+/* CART BOX */
+.cart-box{
+    display:none;
+    position:fixed;
+    bottom:80px;
+    left:20px;
+    background:#0b1220;
+    padding:15px;
+    border-radius:12px;
+    width:250px;
+    max-height:300px;
+    overflow:auto;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.cart-item{
+    font-size:13px;
+    margin-bottom:8px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    padding-bottom:5px;
+}
+
+footer{
     text-align:center;
-    margin-top:20px;
-    color:#cbd5e1;
+    padding:20px;
+    color:#64748b;
 }
 
-.register a{
-    color:#38bdf8;
-    text-decoration:none;
-}
-
-.circle{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(56,189,248,0.15);
-    animation:float 6s infinite ease-in-out;
-}
-
-.circle1{
-    width:220px;
-    height:220px;
-    top:-60px;
-    left:-60px;
-}
-
-.circle2{
-    width:180px;
-    height:180px;
-    bottom:-50px;
-    right:-50px;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-20px);
-    }
-}
 </style>
 </head>
 
 <body>
 
+<header>
+<div class="logo">🎮 PRO STORE</div>
+<div>متجر احترافي</div>
+</header>
 
+<section class="hero">
+<h1>أفضل متجر حسابات ألعاب</h1>
+<p>اختر الحساب وأضفه إلى السلة</p>
+</section>
 
+<section class="container">
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600077106724-946750eeaf3f">
+<div class="card-content">
+<h2>PUBG Account</h2>
+<p>حساب قوي وسكنات نادرة</p>
+<button class="btn" onclick="addToCart('PUBG')">إضافة للسلة</button>
+</div>
+</div>
 
-      
-  
-    
+<div class="card">
+<img src="https://images.unsplash.com/photo-1627856014754-2907e2355a37">
+<div class="card-content">
+<h2>Free Fire</h2>
+<p>حساب مميز وجاهز</p>
+<button class="btn" onclick="addToCart('Free Fire')">إضافة للسلة</button>
+</div>
+</div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1616097970275-1e187b1a3c4b">
+<div class="card-content">
+<h2>Call of Duty</h2>
+<p>رتب عالية وأسلحة قوية</p>
+<button class="btn" onclick="addToCart('Call of Duty')">إضافة للسلة</button>
+</div>
+</div>
 
+</section>
 
-      
-            
-            
-        
+<!-- CART BUTTON -->
+<div class="cart-btn" onclick="toggleCart()">🛒 السلة (<span id="count">0</span>)</div>
 
-      
-            
-    
-        
+<!-- CART BOX -->
+<div class="cart-box" id="cartBox"></div>
 
-</htm
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-box">
 
-  </body>
-  
+<h3>إتمام الطلب</h3>
+
+<input type="text" id="details" placeholder="اكتب تفاصيل طلبك">
+
+<button class="send" onclick="sendWhatsApp()">إرسال عبر واتساب</button>
+<button class="close" onclick="closeModal()">إغلاق</button>
+
+</div>
+</div>
+
+<footer>© 2026 PRO STORE</footer>
+
+<script>
+
+let cart = [];
+
+/* ADD TO CART */
+function addToCart(game){
+    cart.push(game);
+    updateCart();
+    alert("تمت إضافة " + game);
+}
+
+/* UPDATE CART */
+function updateCart(){
+    document.getElementById("count").innerText = cart.length;
+
+    let box = document.getElementById("cartBox");
+    box.innerHTML = "";
+
+    cart.forEach((item,i)=>{
+        box.innerHTML += `<div class="cart-item">${i+1}- ${item}</div>`;
+    });
+}
+
+/* TOGGLE CART */
+function toggleCart(){
+    let box = document.getElementById("cartBox");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+/* WHATSAPP */
+function sendWhatsApp(){
+
+    let details = document.getElementById("details").value;
+
+    let msg = "طلب جديد:%0A";
+
+    cart.forEach(i=>{
+        msg += "- " + i + "%0A";
+    });
+
+    msg += "%0Aتفاصيل: " + details;
+
+    let phone = "YOUR_NUMBER"; // غيّر رقمك
+
+    let url = `https://wa.me/${phone}?text=${msg}`;
+
+    window.open(url,"_blank");
+}
+
+</script>
+
+</body>
 </html>
