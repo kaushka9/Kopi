@@ -1,1 +1,16 @@
+.banner{
+    background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+    animation: glow 2s infinite alternate;
+}
 
+@keyframes glow{
+    from{filter:brightness(1);}
+    to{filter:brightness(1.4);}
+} .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 20px rgba(56,189,248,0.4);
+}
